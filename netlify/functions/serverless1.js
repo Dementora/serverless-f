@@ -1,9 +1,0 @@
-var list = [
-  "vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImtpbWlhLTE4dGgiLA0KICAiYWRkIjogImNmLnN1ZG9lci5uZXQiLA0KICAicG9ydCI6ICI0NDMiLA0KICAiaWQiOiAiNDRjZWIzODktNGNlYS00ZWExLWVlZjktMTFjZTZmM2VmZmU2IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogImF1dG8iLA0KICAiaG9zdCI6ICJzaHkuZmFtaWx5cy53b3JrZXJzLmRldiIsDQogICJwYXRoIjogIi91czEud2Fud3VzaGVuZy5tZS8iLA0KICAidGxzIjogInRscyIsDQogICJzbmkiOiAic2h5LmZhbWlseXMud29ya2Vycy5kZXYiLA0KICAiYWxwbiI6ICJodHRwLzEuMSIsDQogICJmcCI6ICJhbmRyb2lkIg0KfQ==",
-
-]
-export default {
-  async fetch(request, env) {
-    return new Response(btoa(list.join("\r\n")))
-  }
-}
