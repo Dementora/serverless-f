@@ -1,9 +1,8 @@
-var list = [
-  "vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImtpbWlhLTE4dGgiLA0KICAiYWRkIjogImlwLmlzZWdhcm8uY2xpY2siLA0KICAicG9ydCI6ICI0NDMiLA0KICAiaWQiOiAiMjBlOTI4ODEtNWZiNC00YjA1LWJjNzctNTc5Mjk0NzZkYzY5IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogImF1dG8iLA0KICAiaG9zdCI6ICJzaHkuZmFtaWx5cy53b3JrZXJzLmRldiIsDQogICJwYXRoIjogIi9zZy0xLnNoYXJlY2VudHJlLm9ubGluZS9zaGlya2VyIiwNCiAgInRscyI6ICJ0bHMiLA0KICAic25pIjogInNoeS5mYW1pbHlzLndvcmtlcnMuZGV2IiwNCiAgImFscG4iOiAiaHR0cC8xLjEiLA0KICAiZnAiOiAiYW5kcm9pZCINCn0=",
+exports.handler = async (event, context) => {
+  const name = event.queryStringParameters.name || "World";
 
-]
-export default {
-  async fetch(request, env) {
-    return new Response(btoa(list.join("\r\n")))
-  }
-}
+  return {
+    statusCode: 200,
+    body: `Hello, tom`
+  };
+};
