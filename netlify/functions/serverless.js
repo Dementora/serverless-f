@@ -5,7 +5,7 @@ var list = [
 ]
 
   return {
-    
+    statusCode: 200,
     body: btoa(list.join("\r\n"))
   };
 };
