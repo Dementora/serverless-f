@@ -1,11 +1,15 @@
 exports.handler = async (event, context) => {
-var list = [
-  "vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlNBLWtpMi0yMXRoIiwNCiAgImFkZCI6ICIyMDMuMTcuMTI2LjEyNiIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICIzYjkzZDU0My1kZDg4LTQxYTctYmFhMi03OGY0Y2IzOWYxNTIiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogInNlcnZlcjIuaGVxdnpscnkud29ya2Vycy5kZXYiLA0KICAicGF0aCI6ICIvc2ctZnJlZXZtZXNzLnByaXZhdGVpcC5uZXQvZnJlZXZtZXNzIiwNCiAgInRscyI6ICJ0bHMiLA0KICAic25pIjogInNlcnZlcjIuaGVxdnpscnkud29ya2Vycy5kZXYiLA0KICAiYWxwbiI6ICJoMixodHRwLzEuMSIsDQogICJmcCI6ICJyYW5kb20iDQp9",
-
-]
-
+    try {
+      const url = new URL(req.url);
+      const splitted = url.pathname.replace(/^\/*/, '').split('/');
+      const address = splitted[0];
+      url.pathname = splitted.slice(1).join('/');
+      url.hostname = address;
+      url.protocol = 'https';
+      return fetch(new Request(url, req));
+    } catch (e) {
   return {
     statusCode: 200,
-    body: btoa(list.join("\r\n"))
+    body: e
   };
 };
