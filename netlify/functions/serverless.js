@@ -1,15 +1,11 @@
+
 exports.handler = async (event, context) => {
-    try {
-      const url = new URL(req.url);
-      const splitted = url.pathname.replace(/^\/*/, '').split('/');
-      const address = splitted[0];
-      url.pathname = splitted.slice(1).join('/');
-      url.hostname = address;
-      url.protocol = 'https';
-      return fetch(new Request(url, req));
-    } catch (e) {
+	let url = new URL(event.request.url);
+        url.hostname = "in-full.privateip.net";                        
+        url.protocol = "https";
+        let request = new Request(url, event.request);
   return {
     statusCode: 200,
-    body: e
+    body: `Hello, ${name}`
   };
 };
